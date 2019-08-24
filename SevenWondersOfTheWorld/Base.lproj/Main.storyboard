@@ -1,24 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fwV-Ai-xcJ">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Collection View Controller-->
+        <scene sceneID="vjq-jt-dCy">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <collectionViewController id="9J7-0j-XKS" customClass="CollectionViewController" customModule="SevenWondersOfTheWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="dup-HV-Lpl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d4f-hb-Y2w">
+                            <size key="itemSize" width="170" height="125"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="Cell" id="OQb-FA-QaX" customClass="CollectionViewCell" customModule="SevenWondersOfTheWorld" customModuleProvider="target">
+                                <rect key="frame" x="75" y="10" width="170" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="125"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Christ the Redeemer" translatesAutoresizingMaskIntoConstraints="NO" id="4SH-YH-34Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="61"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="4SH-YH-34Q" firstAttribute="top" secondItem="OQb-FA-QaX" secondAttribute="top" id="2Tv-9L-88u"/>
+                                    <constraint firstItem="4SH-YH-34Q" firstAttribute="leading" secondItem="OQb-FA-QaX" secondAttribute="leading" id="ZGj-eR-VAc"/>
+                                    <constraint firstAttribute="bottom" secondItem="4SH-YH-34Q" secondAttribute="bottom" id="htW-r1-Kr9"/>
+                                    <constraint firstAttribute="trailing" secondItem="4SH-YH-34Q" secondAttribute="trailing" id="qKJ-wG-Mce"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="cellImageView" destination="4SH-YH-34Q" id="ms5-HI-jWy"/>
+                                    <segue destination="0kY-ZG-Dft" kind="show" identifier="showDetail" id="OX3-BW-DZE"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="9J7-0j-XKS" id="LVc-E5-ynz"/>
+                            <outlet property="delegate" destination="9J7-0j-XKS" id="AqK-Lz-wWK"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="jux-Bb-sSh"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vla-tT-0Jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="730.43478260869574" y="136.60714285714286"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="lc3-Kw-Q4J">
+            <objects>
+                <viewController id="0kY-ZG-Dft" customClass="DetailViewController" customModule="SevenWondersOfTheWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="fpw-dA-alK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Christ the Redeemer" translatesAutoresizingMaskIntoConstraints="NO" id="XTK-Hv-v4d">
+                                <rect key="frame" x="16" y="20" width="288" height="141"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmN-nD-Osz">
+                                <rect key="frame" x="16" y="255" width="288" height="141"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VAS-mI-Lhq">
+                                <rect key="frame" x="106" y="201" width="108.5" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brazil" translatesAutoresizingMaskIntoConstraints="NO" id="hiE-9b-AIW">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="0ct-XS-C1p"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brazil" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uog-0f-4ZV">
+                                        <rect key="frame" x="49" y="0.0" width="59.5" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FpJ-oj-mVn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZIs-Se-TVX"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LmN-nD-Osz" firstAttribute="leading" secondItem="WXg-RI-pAU" secondAttribute="leading" constant="16" id="3m6-16-5YI"/>
+                            <constraint firstItem="WXg-RI-pAU" firstAttribute="bottom" secondItem="LmN-nD-Osz" secondAttribute="bottom" constant="20" id="8Lb-yn-IMa"/>
+                            <constraint firstItem="VAS-mI-Lhq" firstAttribute="top" secondItem="XTK-Hv-v4d" secondAttribute="bottom" constant="40" id="GJx-s1-IK5"/>
+                            <constraint firstItem="VAS-mI-Lhq" firstAttribute="centerX" secondItem="fpw-dA-alK" secondAttribute="centerX" id="GmB-QP-FHc"/>
+                            <constraint firstItem="LmN-nD-Osz" firstAttribute="top" secondItem="VAS-mI-Lhq" secondAttribute="bottom" constant="24" id="Q1y-ja-IF9"/>
+                            <constraint firstItem="XTK-Hv-v4d" firstAttribute="leading" secondItem="WXg-RI-pAU" secondAttribute="leading" constant="16" id="TS7-Gz-3aT"/>
+                            <constraint firstItem="WXg-RI-pAU" firstAttribute="trailing" secondItem="LmN-nD-Osz" secondAttribute="trailing" constant="16" id="cS4-XK-gji"/>
+                            <constraint firstItem="LmN-nD-Osz" firstAttribute="height" secondItem="XTK-Hv-v4d" secondAttribute="height" id="qzq-5Q-Pk2"/>
+                            <constraint firstItem="WXg-RI-pAU" firstAttribute="trailing" secondItem="XTK-Hv-v4d" secondAttribute="trailing" constant="16" id="xkg-Qg-XNN"/>
+                            <constraint firstItem="XTK-Hv-v4d" firstAttribute="top" secondItem="WXg-RI-pAU" secondAttribute="top" constant="20" id="yaZ-23-0eZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WXg-RI-pAU"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailDescription" destination="LmN-nD-Osz" id="7De-T6-Z3F"/>
+                        <outlet property="detailFlag" destination="hiE-9b-AIW" id="Xfw-eB-IeJ"/>
+                        <outlet property="detailImageView" destination="XTK-Hv-v4d" id="15G-eS-lgb"/>
+                        <outlet property="detailTitle" destination="Uog-0f-4ZV" id="TUA-ZN-Zb7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3W-s9-nXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573.5999999999999" y="135.38230884557723"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LiU-bh-qOd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fwV-Ai-xcJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="kLT-h3-WVm">
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9J7-0j-XKS" kind="relationship" relationship="rootViewController" id="U94-WQ-ryh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mj2-5u-4LR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-33.333333333333336" y="136.60714285714286"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Christ the Redeemer" width="616" height="462"/>
+        <image name="brazil" width="229" height="160"/>
+    </resources>
 </document>
